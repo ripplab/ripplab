@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripplab - Ayarlar</title>
+    <link rel="icon" type="image/png" href="../assets/favicon logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-left">
+                <a href="../index.html" class="back-btn">
+                    <i class="fas fa-arrow-left"></i>
+                    Ana Sayfa
+                </a>
+            </div>
+            <div class="nav-center">
+                <h1 class="page-title">Ayarlar</h1>
+            </div>
+            <div class="nav-right">
+                <div class="logo">
+                    <span class="logo-text">Ripplab</span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="settings-container">
+            <!-- Settings Sidebar -->
+            <aside class="settings-sidebar">
+                <div class="settings-menu">
+
+                    <div class="menu-item active" data-section="account">
+                        <i class="fas fa-cog"></i>
+                        <span>Hesap Ayarları</span>
+                    </div>
+                    <div class="menu-item" data-section="privacy">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Gizlilik</span>
+                    </div>
+                    <div class="menu-item" data-section="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span>Bildirimler</span>
+                    </div>
+                    <div class="menu-item" data-section="appearance">
+                        <i class="fas fa-palette"></i>
+                        <span>Görünüm</span>
+                    </div>
+                    <div class="menu-item" data-section="audio">
+                        <i class="fas fa-volume-up"></i>
+                        <span>Ses Ayarları</span>
+                    </div>
+                    <div class="menu-item" data-section="payment">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Ödeme</span>
+                    </div>
+                    <div class="menu-item" data-section="security">
+                        <i class="fas fa-lock"></i>
+                        <span>Güvenlik</span>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Settings Content -->
+            <div class="settings-content">
+
+
+                <!-- Account Settings Section -->
+                <section class="settings-section active" id="account-section">
+                    <div class="section-header">
+                        <h2>Hesap Ayarları</h2>
+                        <p>Hesabınızla ilgili genel ayarları yönetin</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Hesap Durumu</h3>
+                        <div class="status-info">
+
+                            <div class="status-item">
+                                <span class="status-label">Üyelik Tarihi:</span>
+                                <span class="status-value">15 Ocak 2024</span>
+                            </div>
+                            <div class="status-item">
+                                <span class="status-label">Son Giriş:</span>
+                                <span class="status-value">Bugün, 14:30</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Dil ve Bölge</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Dil</label>
+                                <select class="form-select">
+                                    <option value="tr">Türkçe</option>
+                                    <option value="en">English</option>
+                                    <option value="de">Deutsch</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Zaman Dilimi</label>
+                                <select class="form-select">
+                                    <option value="tr">Türkiye (GMT+3)</option>
+                                    <option value="utc">UTC (GMT+0)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-save">Kaydet</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Privacy Settings Section -->
+                <section class="settings-section" id="privacy-section">
+                    <div class="section-header">
+                        <h2>Gizlilik Ayarları</h2>
+                        <p>Gizliliğinizi ve verilerinizi koruyun</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Profil Gizliliği</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Profili Herkese Açık Yap</h4>
+                                    <p>Diğer kullanıcılar profilinizi görebilir</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Müzik Listelerimi Göster</h4>
+                                    <p>Oluşturduğunuz listeler herkese açık olur</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Çevrimiçi Durumumu Göster</h4>
+                                    <p>Diğer kullanıcılar ne zaman çevrimiçi olduğunuzu görebilir</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Notifications Section -->
+                <section class="settings-section" id="notifications-section">
+                    <div class="section-header">
+                        <h2>Bildirim Ayarları</h2>
+                        <p>Hangi bildirimleri almak istediğinizi seçin</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>E-posta Bildirimleri</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Yeni Müzik Bildirimleri</h4>
+                                    <p>Takip ettiğiniz sanatçıların yeni müzikleri</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Promosyon E-postaları</h4>
+                                    <p>İndirimler ve özel teklifler</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox">
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Push Bildirimleri</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Tarayıcı Bildirimleri</h4>
+                                    <p>Önemli güncellemeler için bildirim alın</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Appearance Section -->
+                <section class="settings-section" id="appearance-section">
+                    <div class="section-header">
+                        <h2>Görünüm Ayarları</h2>
+                        <p>Uygulamanın görünümünü özelleştirin</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Tema</h3>
+                        <div class="theme-options">
+                            <div class="theme-option active" data-theme="light">
+                                <div class="theme-preview light-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content"></div>
+                                </div>
+                                <span>Açık Tema</span>
+                            </div>
+                            <div class="theme-option" data-theme="dark">
+                                <div class="theme-preview dark-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content"></div>
+                                </div>
+                                <span>Koyu Tema</span>
+                            </div>
+                            <div class="theme-option" data-theme="auto">
+                                <div class="theme-preview auto-preview">
+                                    <div class="preview-header"></div>
+                                    <div class="preview-content"></div>
+                                </div>
+                                <span>Otomatik</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Audio Settings Section -->
+                <section class="settings-section" id="audio-section">
+                    <div class="section-header">
+                        <h2>Ses Ayarları</h2>
+                        <p>Müzik dinleme deneyiminizi optimize edin</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Ses Kalitesi</h3>
+                        <div class="quality-options">
+                            <div class="quality-option">
+                                <input type="radio" name="quality" id="quality-low" value="low">
+                                <label for="quality-low">
+                                    <span class="quality-title">Normal</span>
+                                    <span class="quality-desc">128 kbps - Daha az veri kullanır</span>
+                                </label>
+                            </div>
+                            <div class="quality-option">
+                                <input type="radio" name="quality" id="quality-high" value="high" checked>
+                                <label for="quality-high">
+                                    <span class="quality-title">Yüksek</span>
+                                    <span class="quality-desc">320 kbps - En iyi ses kalitesi</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>Ses Efektleri</h3>
+                        <div class="toggle-group">
+                            <div class="toggle-item">
+                                <div class="toggle-info">
+                                    <h4>Otomatik Ses Seviyesi</h4>
+                                    <p>Şarkılar arasında ses seviyesini dengeler</p>
+                                </div>
+                                <label class="toggle-switch">
+                                    <input type="checkbox" checked>
+                                    <span class="toggle-slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Payment Section -->
+                <section class="settings-section" id="payment-section">
+                    <div class="section-header">
+                        <h2>Ödeme Ayarları</h2>
+                        <p>Ödeme yöntemlerinizi yönetin</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Kayıtlı Kartlar</h3>
+                        <div class="payment-methods">
+                            <div class="payment-method">
+                                <div class="card-info">
+                                    <i class="fab fa-cc-visa"></i>
+                                    <span>**** **** **** 1234</span>
+                                    <span class="card-expiry">12/25</span>
+                                </div>
+                                <button class="btn-remove">Kaldır</button>
+                            </div>
+                        </div>
+                        <button class="btn-add-card">
+                            <i class="fas fa-plus"></i>
+                            Yeni Kart Ekle
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Security Section -->
+                <section class="settings-section" id="security-section">
+                    <div class="section-header">
+                        <h2>Güvenlik Ayarları</h2>
+                        <p>Hesabınızın güvenliğini artırın</p>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <h3>Şifre Değiştir</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label>Mevcut Şifre</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Yeni Şifre</label>
+                                <input type="password" class="form-input">
+                            </div>
+                            <div class="form-group">
+                                <label>Yeni Şifre Tekrar</label>
+                                <input type="password" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button class="btn-save">Şifreyi Değiştir</button>
+                        </div>
+                    </div>
+
+                    <div class="settings-card">
+                        <h3>İki Faktörlü Doğrulama</h3>
+                        <div class="toggle-item">
+                            <div class="toggle-info">
+                                <h4>2FA Aktif Et</h4>
+                                <p>Hesabınız için ekstra güvenlik katmanı</p>
+                            </div>
+                            <label class="toggle-switch">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

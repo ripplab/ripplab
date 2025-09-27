@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripplab - Projelerim</title>
+    <link rel="icon" type="image/png" href="../assets/favicon logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="../index.html" class="logo-link">
+                    <span class="logo-text">Ripplab</span>
+                </a>
+            </div>
+            
+            <div class="header-controls">
+                <div class="user-menu">
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            Profil
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-wallet"></i>
+                            Cüzdan: ₺150
+                        </a>
+                        <a href="../settings/index.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Ayarlar
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Çıkış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="page-container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-folder"></i>
+                    Projelerim
+                </h1>
+                <p class="page-subtitle">Oluşturduğunuz eserleri yönetin</p>
+            </div>
+
+            <!-- Stats Section -->
+            <div class="stats-section">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>12</h3>
+                        <p>Toplam Eser</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>1,234</h3>
+                        <p>Toplam Görüntülenme</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>567</h3>
+                        <p>Toplam Beğeni</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-lira-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>₺2,450</h3>
+                        <p>Toplam Kazanç</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter and Search -->
+            <div class="filter-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Projelerinizde ara..." id="search-input">
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">Tümü</button>
+                    <button class="filter-btn" data-filter="published">Yayınlanan</button>
+                    <button class="filter-btn" data-filter="draft">Taslak</button>
+                    <button class="filter-btn" data-filter="private">Özel</button>
+                </div>
+                <div class="sort-dropdown">
+                    <select id="sort-select">
+                        <option value="newest">En Yeni</option>
+                        <option value="oldest">En Eski</option>
+                        <option value="popular">En Popüler</option>
+                        <option value="name">İsme Göre</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid" id="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card" data-status="published" data-date="2024-01-15">
+                    <div class="project-image">
+                        <img src="../assets/dalga.png" alt="Project">
+                        <div class="project-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="project-status published">Yayınlandı</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Midnight Vibes</h3>
+                        <p class="project-description">Gece için özel hazırlanmış elektronik müzik</p>
+                        <div class="project-stats">
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                234 görüntülenme
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i>
+                                45 beğeni
+                            </span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="date">15 Ocak 2024</span>
+                            <span class="price">₺29.99</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn edit-btn">
+                                <i class="fas fa-edit"></i>
+                                Düzenle
+                            </button>
+                            <button class="action-btn stats-btn">
+                                <i class="fas fa-chart-bar"></i>
+                                İstatistikler
+                            </button>
+                            <button class="action-btn delete-btn">
+                                <i class="fas fa-trash"></i>
+                                Sil
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card" data-status="draft" data-date="2024-01-14">
+                    <div class="project-image">
+                        <img src="../assets/dalga.png" alt="Project">
+                        <div class="project-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="project-status draft">Taslak</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Electric Dreams</h3>
+                        <p class="project-description">Synthesizer ağırlıklı ambient müzik</p>
+                        <div class="project-stats">
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                0 görüntülenme
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i>
+                                0 beğeni
+                            </span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="date">14 Ocak 2024</span>
+                            <span class="price">₺39.99</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn edit-btn">
+                                <i class="fas fa-edit"></i>
+                                Düzenle
+                            </button>
+                            <button class="action-btn publish-btn">
+                                <i class="fas fa-upload"></i>
+                                Yayınla
+                            </button>
+                            <button class="action-btn delete-btn">
+                                <i class="fas fa-trash"></i>
+                                Sil
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card" data-status="published" data-date="2024-01-13">
+                    <div class="project-image">
+                        <img src="../assets/dalga.png" alt="Project">
+                        <div class="project-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="project-status published">Yayınlandı</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Urban Flow</h3>
+                        <p class="project-description">Hip-hop tarzında ritmik beat</p>
+                        <div class="project-stats">
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                456 görüntülenme
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i>
+                                89 beğeni
+                            </span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="date">13 Ocak 2024</span>
+                            <span class="price">₺19.99</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn edit-btn">
+                                <i class="fas fa-edit"></i>
+                                Düzenle
+                            </button>
+                            <button class="action-btn stats-btn">
+                                <i class="fas fa-chart-bar"></i>
+                                İstatistikler
+                            </button>
+                            <button class="action-btn delete-btn">
+                                <i class="fas fa-trash"></i>
+                                Sil
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div class="project-card" data-status="private" data-date="2024-01-12">
+                    <div class="project-image">
+                        <img src="../assets/dalga.png" alt="Project">
+                        <div class="project-overlay">
+                            <button class="play-btn">
+                                <i class="fas fa-play"></i>
+                            </button>
+                        </div>
+                        <div class="project-status private">Özel</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Neon Nights</h3>
+                        <p class="project-description">Phonk tarzında deneysel müzik</p>
+                        <div class="project-stats">
+                            <span class="stat">
+                                <i class="fas fa-eye"></i>
+                                12 görüntülenme
+                            </span>
+                            <span class="stat">
+                                <i class="fas fa-heart"></i>
+                                3 beğeni
+                            </span>
+                        </div>
+                        <div class="project-meta">
+                            <span class="date">12 Ocak 2024</span>
+                            <span class="price">₺49.99</span>
+                        </div>
+                        <div class="project-actions">
+                            <button class="action-btn edit-btn">
+                                <i class="fas fa-edit"></i>
+                                Düzenle
+                            </button>
+                            <button class="action-btn publish-btn">
+                                <i class="fas fa-globe"></i>
+                                Herkese Aç
+                            </button>
+                            <button class="action-btn delete-btn">
+                                <i class="fas fa-trash"></i>
+                                Sil
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-state" id="empty-state" style="display: none;">
+                <div class="empty-icon">
+                    <i class="fas fa-folder-open"></i>
+                </div>
+                <h3>Proje bulunamadı</h3>
+                <p>Arama kriterlerinize uygun proje bulunmuyor.</p>
+                <button class="btn-primary" onclick="clearFilters()">
+                    <i class="fas fa-refresh"></i>
+                    Filtreleri Temizle
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

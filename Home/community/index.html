@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ripplab - Topluluk</title>
+    <link rel="icon" type="image/png" href="../assets/favicon logo.png">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <a href="../index.html" class="logo-link">
+                    <span class="logo-text">Ripplab</span>
+                </a>
+            </div>
+            
+            <div class="header-controls">
+                <div class="user-menu">
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <div class="user-dropdown">
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-user"></i>
+                            Profil
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-wallet"></i>
+                            Cüzdan: ₺150
+                        </a>
+                        <a href="../settings/index.html" class="dropdown-item">
+                            <i class="fas fa-cog"></i>
+                            Ayarlar
+                        </a>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-sign-out-alt"></i>
+                            Çıkış
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="page-container">
+            <div class="page-header">
+                <h1 class="page-title">
+                    <i class="fas fa-users"></i>
+                    Topluluk
+                </h1>
+                <p class="page-subtitle">Müzik severlerle bağlantı kurun ve işbirliği yapın</p>
+            </div>
+
+            <!-- Community Stats -->
+            <div class="community-stats">
+                <div class="stat-item">
+                    <div class="stat-number">2,847</div>
+                    <div class="stat-label">Aktif Üye</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">156</div>
+                    <div class="stat-label">Günlük Paylaşım</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">89</div>
+                    <div class="stat-label">İşbirliği</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">1,234</div>
+                    <div class="stat-label">Toplam Proje</div>
+                </div>
+            </div>
+
+            <!-- Navigation Tabs -->
+            <div class="community-nav">
+                <button class="nav-tab active" data-tab="feed">Ana Sayfa</button>
+                <button class="nav-tab" data-tab="artists">Sanatçılar</button>
+                <button class="nav-tab" data-tab="collaborations">İşbirlikleri</button>
+                <button class="nav-tab" data-tab="events">Etkinlikler</button>
+            </div>
+
+            <!-- Feed Tab -->
+            <div class="tab-content active" id="feed">
+                <div class="feed-layout">
+                    <!-- Left Sidebar - Trending Topics -->
+                    <aside class="sidebar">
+                        <div class="sidebar-section">
+                            <h3>Trend Konular</h3>
+                            <div class="trending-topics">
+                                <div class="topic-item">
+                                    <span class="topic-tag">#ElektronikMüzik</span>
+                                    <span class="topic-count">234 paylaşım</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-tag">#BeatMaking</span>
+                                    <span class="topic-count">189 paylaşım</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-tag">#HipHop</span>
+                                    <span class="topic-count">156 paylaşım</span>
+                                </div>
+                                <div class="topic-item">
+                                    <span class="topic-tag">#Ambient</span>
+                                    <span class="topic-count">98 paylaşım</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sidebar-section">
+                            <h3>Önerilen Sanatçılar</h3>
+                            <div class="suggested-artists">
+                                <div class="artist-item">
+                                    <img src="../assets/dalga.png" alt="Artist" class="artist-avatar">
+                                    <div class="artist-info">
+                                        <h4>DJ Ripp</h4>
+                                        <p>2.3K takipçi</p>
+                                    </div>
+                                    <button class="follow-btn">Takip Et</button>
+                                </div>
+                                <div class="artist-item">
+                                    <img src="../assets/dalga.png" alt="Artist" class="artist-avatar">
+                                    <div class="artist-info">
+                                        <h4>SynthMaster</h4>
+                                        <p>1.8K takipçi</p>
+                                    </div>
+                                    <button class="follow-btn">Takip Et</button>
+                                </div>
+                                <div class="artist-item">
+                                    <img src="../assets/dalga.png" alt="Artist" class="artist-avatar">
+                                    <div class="artist-info">
+                                        <h4>MC Flow</h4>
+                                        <p>3.1K takipçi</p>
+                                    </div>
+                                    <button class="follow-btn">Takip Et</button>
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Main Feed -->
+                    <div class="main-feed">
+                        <!-- Post Composer -->
+                        <div class="post-composer">
+                            <div class="composer-header">
+                                <img src="../assets/dalga.png" alt="User" class="user-avatar">
+                                <div class="composer-input">
+                                    <input type="text" placeholder="Toplulukla bir şeyler paylaşın...">
+                                </div>
+                            </div>
+                            <div class="composer-actions">
+                                <button class="composer-btn">
+                                    <i class="fas fa-music"></i>
+                                    Müzik Ekle
+                                </button>
+                                <button class="composer-btn">
+                                    <i class="fas fa-image"></i>
+                                    Fotoğraf
+                                </button>
+                                <button class="composer-btn">
+                                    <i class="fas fa-video"></i>
+                                    Video
+                                </button>
+                                <button class="composer-btn primary">
+                                    <i class="fas fa-paper-plane"></i>
+                                    Paylaş
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Feed Posts -->
+                        <div class="feed-posts">
+                            <!-- Post 1 -->
+                            <div class="post-card">
+                                <div class="post-header">
+                                    <img src="../assets/dalga.png" alt="User" class="post-avatar">
+                                    <div class="post-user-info">
+                                        <h4>DJ Ripp</h4>
+                                        <span class="post-time">2 saat önce</span>
+                                    </div>
+                                    <button class="post-menu">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                <div class="post-content">
+                                    <p>Yeni beat'im "Midnight Vibes" artık yayında! Gece kulüplerinde çalınmaya hazır. Linke tıklayıp dinleyebilirsiniz 🎵</p>
+                                    <div class="post-music">
+                                        <div class="music-preview">
+                                            <img src="../assets/dalga.png" alt="Music">
+                                            <div class="music-info">
+                                                <h5>Midnight Vibes</h5>
+                                                <p>DJ Ripp</p>
+                                            </div>
+                                            <button class="play-btn">
+                                                <i class="fas fa-play"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="action-btn like-btn">
+                                        <i class="far fa-heart"></i>
+                                        <span>45</span>
+                                    </button>
+                                    <button class="action-btn comment-btn">
+                                        <i class="far fa-comment"></i>
+                                        <span>12</span>
+                                    </button>
+                                    <button class="action-btn share-btn">
+                                        <i class="fas fa-share"></i>
+                                        <span>Paylaş</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Post 2 -->
+                            <div class="post-card">
+                                <div class="post-header">
+                                    <img src="../assets/dalga.png" alt="User" class="post-avatar">
+                                    <div class="post-user-info">
+                                        <h4>SynthMaster</h4>
+                                        <span class="post-time">4 saat önce</span>
+                                    </div>
+                                    <button class="post-menu">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                <div class="post-content">
+                                    <p>Ambient müzik yapımında kullandığım yeni teknikleri paylaşıyorum. Bu hafta sonu workshop düzenleyeceğim, katılmak isteyenler DM atsın! 🎹</p>
+                                    <div class="post-image">
+                                        <img src="../assets/dalga.png" alt="Workshop">
+                                    </div>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="action-btn like-btn">
+                                        <i class="far fa-heart"></i>
+                                        <span>78</span>
+                                    </button>
+                                    <button class="action-btn comment-btn">
+                                        <i class="far fa-comment"></i>
+                                        <span>23</span>
+                                    </button>
+                                    <button class="action-btn share-btn">
+                                        <i class="fas fa-share"></i>
+                                        <span>Paylaş</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Post 3 -->
+                            <div class="post-card">
+                                <div class="post-header">
+                                    <img src="../assets/dalga.png" alt="User" class="post-avatar">
+                                    <div class="post-user-info">
+                                        <h4>MC Flow</h4>
+                                        <span class="post-time">6 saat önce</span>
+                                    </div>
+                                    <button class="post-menu">
+                                        <i class="fas fa-ellipsis-h"></i>
+                                    </button>
+                                </div>
+                                <div class="post-content">
+                                    <p>Hip-hop beat'leri için işbirliği arıyorum. Rap yapmak isteyen sanatçılarla çalışmak istiyorum. Portfolio'nu gönderebilirsiniz! 🎤</p>
+                                </div>
+                                <div class="post-actions">
+                                    <button class="action-btn like-btn">
+                                        <i class="far fa-heart"></i>
+                                        <span>34</span>
+                                    </button>
+                                    <button class="action-btn comment-btn">
+                                        <i class="far fa-comment"></i>
+                                        <span>8</span>
+                                    </button>
+                                    <button class="action-btn share-btn">
+                                        <i class="fas fa-share"></i>
+                                        <span>Paylaş</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Artists Tab -->
+            <div class="tab-content" id="artists">
+                <div class="artists-grid">
+                    <div class="artist-card">
+                        <img src="../assets/dalga.png" alt="Artist" class="artist-image">
+                        <div class="artist-info">
+                            <h3>DJ Ripp</h3>
+                            <p class="artist-genre">Elektronik Müzik</p>
+                            <p class="artist-followers">2.3K takipçi</p>
+                            <div class="artist-stats">
+                                <span>45 eser</span>
+                                <span>1.2K beğeni</span>
+                            </div>
+                            <button class="follow-btn">Takip Et</button>
+                        </div>
+                    </div>
+
+                    <div class="artist-card">
+                        <img src="../assets/dalga.png" alt="Artist" class="artist-image">
+                        <div class="artist-info">
+                            <h3>SynthMaster</h3>
+                            <p class="artist-genre">Ambient</p>
+                            <p class="artist-followers">1.8K takipçi</p>
+                            <div class="artist-stats">
+                                <span>32 eser</span>
+                                <span>890 beğeni</span>
+                            </div>
+                            <button class="follow-btn">Takip Et</button>
+                        </div>
+                    </div>
+
+                    <div class="artist-card">
+                        <img src="../assets/dalga.png" alt="Artist" class="artist-image">
+                        <div class="artist-info">
+                            <h3>MC Flow</h3>
+                            <p class="artist-genre">Hip-Hop</p>
+                            <p class="artist-followers">3.1K takipçi</p>
+                            <div class="artist-stats">
+                                <span>67 eser</span>
+                                <span>2.1K beğeni</span>
+                            </div>
+                            <button class="follow-btn">Takip Et</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Collaborations Tab -->
+            <div class="tab-content" id="collaborations">
+                <div class="collaborations-section">
+                    <div class="section-header">
+                        <h3>Açık İşbirlikleri</h3>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            İşbirliği İlanı Ver
+                        </button>
+                    </div>
+                    
+                    <div class="collaborations-grid">
+                        <div class="collaboration-card">
+                            <div class="collab-header">
+                                <img src="../assets/dalga.png" alt="User" class="collab-avatar">
+                                <div class="collab-info">
+                                    <h4>MC Flow</h4>
+                                    <span class="collab-time">2 gün önce</span>
+                                </div>
+                            </div>
+                            <div class="collab-content">
+                                <h5>Hip-hop beat'leri için rap sanatçısı arıyorum</h5>
+                                <p>Yeni projem için rap yapabilecek sanatçılarla çalışmak istiyorum. Deneyimli olması tercih edilir.</p>
+                                <div class="collab-tags">
+                                    <span class="tag">Hip-Hop</span>
+                                    <span class="tag">Rap</span>
+                                    <span class="tag">Beat</span>
+                                </div>
+                            </div>
+                            <div class="collab-actions">
+                                <button class="btn-secondary">Detaylar</button>
+                                <button class="btn-primary">Başvur</button>
+                            </div>
+                        </div>
+
+                        <div class="collaboration-card">
+                            <div class="collab-header">
+                                <img src="../assets/dalga.png" alt="User" class="collab-avatar">
+                                <div class="collab-info">
+                                    <h4>SynthMaster</h4>
+                                    <span class="collab-time">5 gün önce</span>
+                                </div>
+                            </div>
+                            <div class="collab-content">
+                                <h5>Ambient müzik projesi için gitarist arıyorum</h5>
+                                <p>Atmosferik ambient müzik yapımında gitar çalabilecek müzisyenlerle işbirliği yapmak istiyorum.</p>
+                                <div class="collab-tags">
+                                    <span class="tag">Ambient</span>
+                                    <span class="tag">Gitar</span>
+                                    <span class="tag">Atmosferik</span>
+                                </div>
+                            </div>
+                            <div class="collab-actions">
+                                <button class="btn-secondary">Detaylar</button>
+                                <button class="btn-primary">Başvur</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Events Tab -->
+            <div class="tab-content" id="events">
+                <div class="events-section">
+                    <div class="section-header">
+                        <h3>Yaklaşan Etkinlikler</h3>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i>
+                            Etkinlik Oluştur
+                        </button>
+                    </div>
+                    
+                    <div class="events-grid">
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="day">25</span>
+                                <span class="month">Oca</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Beat Making Workshop</h4>
+                                <p class="event-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    Online - Zoom
+                                </p>
+                                <p class="event-time">
+                                    <i class="fas fa-clock"></i>
+                                    19:00 - 21:00
+                                </p>
+                                <p class="event-description">Elektronik müzik yapımında temel teknikleri öğrenin</p>
+                                <div class="event-attendees">
+                                    <span>45 katılımcı</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary">Katıl</button>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-date">
+                                <span class="day">28</span>
+                                <span class="month">Oca</span>
+                            </div>
+                            <div class="event-info">
+                                <h4>Müzik Prodüksiyon Semineri</h4>
+                                <p class="event-location">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    İstanbul - Kadıköy
+                                </p>
+                                <p class="event-time">
+                                    <i class="fas fa-clock"></i>
+                                    14:00 - 17:00
+                                </p>
+                                <p class="event-description">Profesyonel müzik prodüksiyon teknikleri</p>
+                                <div class="event-attendees">
+                                    <span>23 katılımcı</span>
+                                </div>
+                            </div>
+                            <button class="btn-primary">Katıl</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

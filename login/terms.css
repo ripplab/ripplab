@@ -1,0 +1,2521 @@
+/* Ripplab Terms CSS - Kullanım Koşulları Sayfası */
+
+/* CSS Variables */
+:root {
+    --primary-blue: #0047c4;
+    --primary-blue-dark: #0047c4;
+    --secondary-blue: #0386f2;
+    --accent-blue: #6eafdf;
+    --white: #ffffff;
+    --light-gray: #f8f9fa;
+    --gray: #6c757d;
+    --dark-gray: #343a40;
+    --text-primary: #212529;
+    --text-secondary: #6c757d;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Favicon büyütme - ÇOK BÜYÜK! */
+link[rel="icon"] {
+    width: 10000px !important;
+    height: 10000px !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform: scale(10) !important;
+}
+
+/* Apple touch icon için daha da büyük */
+link[rel="apple-touch-icon"] {
+    width: 20000px !important;
+    height: 20000px !important;
+    max-width: none !important;
+    max-height: none !important;
+    transform: scale(20) !important;
+}
+
+/* Favicon'u zorla büyüt */
+link[rel*="icon"] {
+    width: 10000px !important;
+    height: 10000px !important;
+    transform: scale(10) !important;
+}
+
+/* İlk yüklenen küçük favicon'u gizle */
+link[rel="icon"][sizes="16x16"],
+link[rel="icon"][sizes="32x32"],
+link[rel="icon"][sizes="64x64"] {
+    display: none !important;
+}
+
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Loading Screen */
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.loading-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid var(--white);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+html {
+    scroll-padding-top: 0;
+    scroll-margin-top: 0;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Webkit tarayıcılar için scroll çubuğunu gizle */
+html::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, var(--light-gray) 0%, var(--white) 100%);
+    overflow-x: hidden;
+    scroll-padding-top: 0;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('assets/sözleşme arkaplanı.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.4;
+    z-index: -2;
+}
+
+/* Webkit tarayıcılar için scroll çubuğunu gizle */
+body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Merkez çizgi (gizli) */
+.center-line {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #0386f2; /* Mavi çizgi */
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0; /* Gizli */
+    visibility: hidden; /* Tamamen gizli */
+}
+
+/* Metre çubukları container */
+.page-meters {
+    position: absolute;
+    top: 0;
+    right: calc(2rem - 30px);
+    width: 20px;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Metre çubukları */
+.meter {
+    position: absolute;
+    width: 8px; /* Kısa genişlik */
+    height: 3px; /* Yatay yükseklik */
+    background: #666;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    right: 0; /* Ekranın en sağına sıfırla */
+}
+
+/* Aktif metre çubukları */
+.meter.active {
+    background: #0386f2; /* Mavi */
+    width: 21px; /* Lobi ile aynı - 21px */
+    box-shadow: 0 0 10px rgba(3, 134, 242, 0.5); /* Mavi gölge */
+    opacity: 1; /* En uzun - tamamen şeffaf değil */
+}
+
+.meter.active-1 {
+    background: #0386f2; /* Aynı mavi */
+    width: 19px; /* Lobi ile aynı - 19px */
+    box-shadow: 0 0 8px rgba(3, 134, 242, 0.4); /* Biraz daha az gölge */
+    opacity: 0.9; /* Lobi ile aynı opaklık */
+}
+
+.meter.active-2 {
+    background: #0386f2; /* Aynı mavi */
+    width: 16px; /* Lobi ile aynı - 16px */
+    box-shadow: 0 0 6px rgba(3, 134, 242, 0.3); /* Daha az gölge */
+    opacity: 0.8; /* Lobi ile aynı opaklık */
+}
+
+.meter.active-3 {
+    background: #0386f2; /* Aynı mavi */
+    width: 10px; /* Lobi ile aynı - 10px */
+    box-shadow: 0 0 4px rgba(3, 134, 242, 0.2); /* En az gölge */
+    opacity: 0.7; /* Lobi ile aynı opaklık */
+}
+
+/* Metre çubukları pozisyonları */
+.meter--6 {
+    top: -10px; /* En üstte */
+}
+
+.meter--5 {
+    top: 5px;
+}
+
+.meter--4 {
+    top: 20px;
+}
+
+.meter--3 {
+    top: 35px;
+}
+
+.meter--2 {
+    top: 50px;
+}
+
+.meter--1 {
+    top: 65px;
+}
+
+.meter-1 {
+    top: 80px; /* Header'ın altından başla */
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-2 {
+    top: 95px; /* 15px aralık */
+}
+
+.meter-3 {
+    top: 110px;
+}
+
+.meter-4 {
+    top: 125px;
+}
+
+.meter-5 {
+    top: 140px;
+}
+
+.meter-6 {
+    top: 155px;
+}
+
+.meter-7 {
+    top: 170px;
+}
+
+.meter-8 {
+    top: 185px;
+}
+
+.meter-9 {
+    top: 200px;
+}
+
+.meter-10 {
+    top: 215px;
+}
+
+.meter-11 {
+    top: 230px;
+}
+
+.meter-12 {
+    top: 245px;
+}
+
+.meter-13 {
+    top: 260px;
+}
+
+.meter-14 {
+    top: 275px;
+}
+
+.meter-15 {
+    top: 290px;
+}
+
+.meter-16 {
+    top: 305px;
+}
+
+.meter-17 {
+    top: 320px;
+}
+
+.meter-18 {
+    top: 335px;
+}
+
+.meter-19 {
+    top: 350px;
+}
+
+.meter-20 {
+    top: 365px;
+}
+
+.meter-21 {
+    top: 380px;
+}
+
+.meter-22 {
+    top: 395px;
+}
+
+.meter-23 {
+    top: 410px;
+}
+
+.meter-24 {
+    top: 425px;
+}
+
+.meter-25 {
+    top: 440px;
+}
+
+.meter-26 {
+    top: 455px;
+}
+
+.meter-27 {
+    top: 470px;
+}
+
+.meter-28 {
+    top: 485px;
+}
+
+.meter-29 {
+    top: 500px;
+}
+
+.meter-30 {
+    top: 515px;
+}
+
+.meter-31 {
+    top: 530px;
+}
+
+.meter-32 {
+    top: 545px;
+}
+
+.meter-33 {
+    top: 560px;
+}
+
+.meter-34 {
+    top: 575px;
+}
+
+.meter-35 {
+    top: 590px;
+}
+
+.meter-36 {
+    top: 605px;
+}
+
+.meter-37 {
+    top: 620px;
+}
+
+.meter-38 {
+    top: 635px;
+}
+
+.meter-39 {
+    top: 650px;
+}
+
+.meter-40 {
+    top: 665px;
+}
+
+.meter-41 {
+    top: 680px;
+}
+
+.meter-42 {
+    top: 695px;
+}
+
+.meter-43 {
+    top: 710px;
+}
+
+.meter-44 {
+    top: 725px;
+}
+
+.meter-45 {
+    top: 740px;
+}
+
+.meter-46 {
+    top: 755px;
+}
+
+.meter-47 {
+    top: 770px;
+}
+
+.meter-48 {
+    top: 785px;
+}
+
+.meter-49 {
+    top: 800px;
+}
+
+.meter-50 {
+    top: 815px;
+}
+
+.meter-51 {
+    top: 830px;
+}
+
+.meter-52 {
+    top: 845px;
+}
+
+.meter-53 {
+    top: 860px;
+}
+
+.meter-54 {
+    top: 875px;
+}
+
+.meter-55 {
+    top: 890px;
+}
+
+.meter-56 {
+    top: 905px;
+}
+
+.meter-57 {
+    top: 920px;
+}
+
+.meter-58 {
+    top: 935px;
+}
+
+.meter-59 {
+    top: 950px;
+}
+
+.meter-60 {
+    top: 965px;
+}
+
+.meter-61 {
+    top: 980px;
+}
+
+.meter-62 {
+    top: 995px;
+}
+
+.meter-63 {
+    top: 1010px;
+}
+
+.meter-64 {
+    top: 1025px;
+}
+
+.meter-65 {
+    top: 1040px;
+}
+
+.meter-66 {
+    top: 1055px;
+}
+
+.meter-67 {
+    top: 1070px;
+}
+
+.meter-68 {
+    top: 1085px;
+}
+
+.meter-69 {
+    top: 1100px;
+}
+
+.meter-70 {
+    top: 1115px;
+}
+
+.meter-71 {
+    top: 1130px;
+}
+
+.meter-72 {
+    top: 1145px;
+}
+
+.meter-73 {
+    top: 1160px;
+}
+
+.meter-74 {
+    top: 1175px;
+}
+
+.meter-75 {
+    top: 1190px;
+}
+
+.meter-76 {
+    top: 1205px;
+}
+
+.meter-77 {
+    top: 1220px;
+}
+
+.meter-78 {
+    top: 1235px;
+}
+
+.meter-79 {
+    top: 1250px;
+}
+
+.meter-80 {
+    top: 1265px;
+}
+
+.meter-81 {
+    top: 1280px;
+}
+
+.meter-82 {
+    top: 1295px;
+}
+
+.meter-83 {
+    top: 1310px;
+}
+
+.meter-84 {
+    top: 1325px;
+}
+
+.meter-85 {
+    top: 1340px;
+}
+
+.meter-86 {
+    top: 1355px;
+}
+
+.meter-87 {
+    top: 1370px;
+}
+
+.meter-88 {
+    top: 1385px;
+}
+
+.meter-89 {
+    top: 1400px;
+}
+
+.meter-90 {
+    top: 1415px;
+}
+
+.meter-91 {
+    top: 1430px;
+}
+
+.meter-92 {
+    top: 1445px;
+}
+
+.meter-93 {
+    top: 1460px;
+}
+
+.meter-94 {
+    top: 1475px;
+}
+
+.meter-95 {
+    top: 1490px;
+}
+
+.meter-96 {
+    top: 1505px;
+}
+
+.meter-97 {
+    top: 1520px;
+}
+
+.meter-98 {
+    top: 1535px;
+}
+
+.meter-99 {
+    top: 1550px;
+}
+
+.meter-100 {
+    top: 1565px;
+}
+
+.meter-101 {
+    top: 1580px;
+}
+
+.meter-102 {
+    top: 1595px;
+}
+
+.meter-103 {
+    top: 1610px;
+}
+
+.meter-104 {
+    top: 1625px;
+}
+
+.meter-105 {
+    top: 1640px;
+}
+
+.meter-106 {
+    top: 1655px;
+}
+
+.meter-107 {
+    top: 1670px;
+}
+
+.meter-108 {
+    top: 1685px;
+}
+
+.meter-109 {
+    top: 1700px;
+}
+
+.meter-110 {
+    top: 1715px;
+}
+
+.meter-111 {
+    top: 1730px;
+}
+
+.meter-112 {
+    top: 1745px;
+}
+
+.meter-113 {
+    top: 1760px;
+}
+
+.meter-114 {
+    top: 1775px;
+}
+
+.meter-115 {
+    top: 1790px;
+}
+
+.meter-116 {
+    top: 1805px;
+}
+
+.meter-117 {
+    top: 1820px;
+}
+
+.meter-118 {
+    top: 1835px;
+}
+
+.meter-119 {
+    top: 1850px;
+}
+
+.meter-120 {
+    top: 1870px;
+}
+
+.meter-121 {
+    top: 1885px;
+}
+
+.meter-122 {
+    top: 1900px;
+}
+
+.meter-123 {
+    top: 1915px;
+}
+
+.meter-124 {
+    top: 1930px;
+}
+
+.meter-125 {
+    top: 1945px;
+}
+
+.meter-126 {
+    top: 1960px;
+}
+
+.meter-127 {
+    top: 1975px;
+}
+
+.meter-128 {
+    top: 1990px;
+}
+
+.meter-129 {
+    top: 2005px;
+}
+
+.meter-130 {
+    top: 2020px;
+}
+
+.meter-131 {
+    top: 2035px;
+}
+
+.meter-132 {
+    top: 2050px;
+}
+
+.meter-133 {
+    top: 2065px;
+}
+
+.meter-134 {
+    top: 2080px;
+}
+
+.meter-135 {
+    top: 2095px;
+}
+
+.meter-136 {
+    top: 2110px;
+}
+
+.meter-137 {
+    top: 2125px;
+}
+
+.meter-138 {
+    top: 2140px;
+}
+
+.meter-139 {
+    top: 2155px;
+}
+
+.meter-140 {
+    top: 2170px;
+}
+
+.meter-141 {
+    top: 2185px;
+}
+
+.meter-142 {
+    top: 2200px;
+}
+
+.meter-143 {
+    top: 2215px;
+}
+
+.meter-144 {
+    top: 2230px;
+}
+
+.meter-145 {
+    top: 2245px;
+}
+
+.meter-146 {
+    top: 2260px;
+}
+
+.meter-147 {
+    top: 2275px;
+}
+
+.meter-148 {
+    top: 2290px;
+}
+
+.meter-149 {
+    top: 2305px;
+}
+
+.meter-150 {
+    top: 2320px; /* FOOTER SINIRI GEÇİLEMEZ! Footer'ın 300px üstünde bitir */
+}
+
+.meter-151 {
+    top: 2335px;
+}
+
+.meter-152 {
+    top: 2350px;
+}
+
+.meter-153 {
+    top: 2365px;
+}
+
+.meter-154 {
+    top: 2380px;
+}
+
+.meter-155 {
+    top: 2395px;
+}
+
+.meter-156 {
+    top: 2410px;
+}
+
+.meter-157 {
+    top: 2425px;
+}
+
+.meter-158 {
+    top: 2440px;
+}
+
+.meter-159 {
+    top: 2455px;
+}
+
+.meter-160 {
+    top: 2470px;
+}
+
+.meter-161 {
+    top: 2485px;
+}
+
+.meter-162 {
+    top: 2500px;
+}
+
+.meter-163 {
+    top: 2515px;
+}
+
+.meter-164 {
+    top: 2530px;
+}
+
+.meter-165 {
+    top: 2545px;
+}
+
+.meter-166 {
+    top: 2560px;
+}
+
+.meter-167 {
+    top: 2575px;
+}
+
+.meter-168 {
+    top: 2590px;
+}
+
+.meter-169 {
+    top: 2605px;
+}
+
+.meter-170 {
+    top: 2620px;
+}
+
+.meter-171 {
+    top: 2635px;
+}
+
+.meter-172 {
+    top: 2650px;
+}
+
+.meter-173 {
+    top: 2665px;
+}
+
+.meter-174 {
+    top: 2680px;
+}
+
+.meter-175 {
+    top: 2695px;
+}
+
+.meter-176 {
+    top: 2710px;
+}
+
+.meter-177 {
+    top: 2725px;
+}
+
+.meter-178 {
+    top: 2740px;
+}
+
+.meter-179 {
+    top: 2755px;
+}
+
+.meter-180 {
+    top: 2770px;
+}
+
+.meter-181 {
+    top: 2785px;
+}
+
+.meter-182 {
+    top: 2800px;
+}
+
+.meter-183 {
+    top: 2815px;
+}
+
+.meter-184 {
+    top: 2830px;
+}
+
+.meter-185 {
+    top: 2845px;
+}
+
+.meter-186 {
+    top: 2860px;
+}
+
+.meter-187 {
+    top: 2875px;
+}
+
+.meter-188 {
+    top: 2890px;
+}
+
+.meter-189 {
+    top: 2905px;
+}
+
+.meter-190 {
+    top: 2920px;
+}
+
+.meter-191 {
+    top: 2935px;
+}
+
+.meter-192 {
+    top: 2950px;
+}
+
+.meter-193 {
+    top: 2965px;
+}
+
+.meter-194 {
+    top: 2980px;
+}
+
+.meter-195 {
+    top: 2995px;
+}
+
+.meter-196 {
+    top: 3010px;
+}
+
+.meter-197 {
+    top: 3025px;
+}
+
+.meter-198 {
+    top: 3040px;
+}
+
+.meter-199 {
+    top: 3055px;
+}
+
+.meter-200 {
+    top: 3070px; /* Footer sınırına kadar, eksik diş yok */
+}
+
+.meter-201 {
+    top: 3085px;
+}
+
+.meter-202 {
+    top: 3100px;
+}
+
+.meter-203 {
+    top: 3115px;
+}
+
+.meter-204 {
+    top: 3130px;
+}
+
+.meter-205 {
+    top: 3145px;
+}
+
+.meter-206 {
+    top: 3160px;
+}
+
+.meter-207 {
+    top: 3175px;
+}
+
+.meter-208 {
+    top: 3190px;
+}
+
+.meter-209 {
+    top: 3205px;
+}
+
+.meter-210 {
+    top: 3220px;
+}
+
+.meter-211 {
+    top: 3235px;
+}
+
+.meter-212 {
+    top: 3250px;
+}
+
+.meter-213 {
+    top: 3265px;
+}
+
+.meter-214 {
+    top: 3280px;
+}
+
+.meter-215 {
+    top: 3295px;
+}
+
+.meter-216 {
+    top: 3310px;
+}
+
+.meter-217 {
+    top: 3325px;
+}
+
+.meter-218 {
+    top: 3340px;
+}
+
+.meter-219 {
+    top: 3355px;
+}
+
+.meter-220 {
+    top: 3370px;
+}
+
+.meter-221 {
+    top: 3385px;
+}
+
+.meter-222 {
+    top: 3400px;
+}
+
+.meter-223 {
+    top: 3415px;
+}
+
+.meter-224 {
+    top: 3430px;
+}
+
+.meter-225 {
+    top: 3445px;
+}
+
+.meter-226 {
+    top: 3460px;
+}
+
+.meter-227 {
+    top: 3475px; /* Sayfanın sonuna kadar */
+}
+
+.meter-228 {
+    top: 3490px; /* En alt metre çubuğu */
+}
+
+/* Main Content */
+.main {
+    margin-top: 0;
+    padding: 2rem;
+}
+
+.terms-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.terms-header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    background-image: url('assets/beyaz logo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--white);
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.terms-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    opacity: 0.8;
+    z-index: 1;
+}
+
+
+
+
+
+
+
+.terms-title,
+.terms-date {
+    position: relative;
+    z-index: 2;
+}
+
+.terms-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.terms-date {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    color: var(--white);
+}
+
+.terms-content {
+    padding: 2rem;
+}
+
+.terms-section {
+    margin-bottom: 2.5rem;
+}
+
+.terms-section:last-child {
+    margin-bottom: 0;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue)) 1;
+    padding-bottom: 0.5rem;
+}
+
+.terms-section h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 1.5rem 0 1rem 0;
+}
+
+.terms-section p {
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+}
+
+.terms-section ul {
+    margin: 1rem 0 1rem 2rem;
+}
+
+.terms-section li {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.contact-email {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--primary-blue);
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.terms-footer {
+    background: var(--light-gray);
+    padding: 2rem;
+    text-align: center;
+    border-top: 1px solid var(--light-gray);
+}
+
+.agree-btn {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.agree-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.agree-btn i {
+    font-size: 1.1rem;
+}
+
+/* Dark Theme */
+.theme-dark {
+    --text-primary: #e5e7eb;
+    --text-secondary: #94a3b8;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+    --shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+body.theme-dark {
+    background: linear-gradient(135deg, #0b1220 0%, #0f172a 100%);
+}
+
+body.theme-dark::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('assets/sözleşme arkaplanı.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.35;
+    z-index: -2;
+}
+
+.theme-dark .terms-container {
+    background: rgba(17, 24, 39, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.theme-dark .terms-footer {
+    background: rgba(255, 255, 255, 0.05);
+    border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Fast Reader Message Styles */
+.fast-reader-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+    transition: all 0.3s ease;
+    max-width: 90%;
+    text-align: center;
+    min-width: 300px;
+}
+
+.fast-reader-message.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Dark theme adjustments */
+.theme-dark .fast-reader-message {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+}
+
+.theme-dark .terms-header {
+    background-image: url('assets/beyaz logo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+
+
+.theme-dark .terms-header::before {
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    opacity: 0.9;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .terms-container {
+        margin: 1rem;
+        border-radius: 15px;
+    }
+    
+    .terms-header {
+        padding: 2rem 1rem;
+    }
+    
+    .terms-title {
+        font-size: 2rem;
+    }
+    
+    .terms-content {
+        padding: 1.5rem;
+    }
+    
+    .main {
+        padding: 1rem;
+    }
+}
+
+
+
+/* Hızlı Okuma Uyarı Mesajı */
+.fast-reader-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--primary-blue), var(--secondary-blue));
+    color: var(--white);
+    padding: 2rem 3rem;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    max-width: 90%;
+    text-align: center;
+    min-width: 300px;
+}
+
+.fast-reader-message.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.message-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* Invisible Scroll Area - Right Side (Meter Bar Feature) */
+.meter-scroll-area {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 15px;
+    height: 100vh;
+    z-index: 100;
+    background: transparent;
+    overflow: visible;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.meter-scroll-content {
+    height: 3500px;
+    width: 100%;
+    background: transparent;
+}
